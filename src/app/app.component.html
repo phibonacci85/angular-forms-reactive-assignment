@@ -14,6 +14,39 @@
 
           Upon submitting the form, simply print the value to the console
       -->
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Project Name
+            <input
+              formControlName="project"
+              class="form-control"
+              type="text">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Email
+            <input
+              formControlName="email"
+              class="form-control"
+              type="text">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Status
+            <select
+              formControlName="status"
+              class="form-control">
+              <option value="stable">Stable</option>
+              <option value="critical">Critical</option>
+              <option value="finished">Finished</option>
+            </select>
+          </label>
+        </div>
+        <span *ngIf="!signupForm.valid" class="help-block">Form is Invalid</span>
+        <button
+          type="submit"
+          class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
 </div>
